@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { RouteController } from './route/route.controller';
-import { RouteModule } from './route/route.module';
 import { OtpController } from './otp/otp.controller';
 import { OtpModule } from './otp/otp.module';
+import { RoutesController } from './routes/routes.controller';
+import { RoutesModule } from './routes/routes.module';
 
 @Module({
-  imports: [RouteModule, OtpModule],
-  controllers: [RouteController, OtpController],
+  imports: [OtpModule, RoutesModule],
+  controllers: [OtpController, RoutesController],
   providers: [],
 })
 export class AppModule {}
