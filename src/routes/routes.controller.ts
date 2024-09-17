@@ -1,4 +1,14 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { RoutesService } from './routes.service';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('routes')
-export class RoutesController {}
+@ApiTags('routes')
+export class RoutesController {
+  constructor(private readonly routesService: RoutesService) {}
+
+  @Get()
+  getAllRoutes(): object {
+    return this.routesService.getRoutes();
+  }
+}
